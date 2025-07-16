@@ -10,7 +10,7 @@ OPENROUTER_API_KEY = os.getenv("Question_Generator_Key")
 MODEL_ENDPOINT = "https://openrouter.ai/api/v1/chat/completions"
 
 # Load the lesson structure
-with open("/Users/jcohen/Desktop/Question_Generator/security_plus_structure.json", "r") as f:
+with open("security_plus_structure.json", "r") as f:
     data = json.load(f)
 
 # System prompt for model
