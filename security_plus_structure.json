@@ -1,20 +1,252 @@
 {
-    "certification": "Security+",
-    "topics": [
-      {
-        "topicName": "General Security Concepts",
-        "subdomains": [
-          {
-            "subdomainName": "Security Frameworks & Controls",
-            "lessons": [
-              {
-                "lessonTitle": "CIA Triad & AAA",
-                "lessonID": 1,
-                "questions": []
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  }
+  "certification": "CompTIA Security+",
+  "topics": [
+    {
+      "topicName": "General Security Concepts",
+      "subdomains": [
+        {
+          "subdomainName": "Security Frameworks & Controls",
+          "lessons": [
+            {
+              "lessonTitle": "Types of Security Controls (Preventive, Detective, Corrective)",
+              "questions": []
+            },
+            {
+              "lessonTitle": "Directive, Compensating & Physical Controls",
+              "questions": []
+            }
+          ]
+        },
+        {
+          "subdomainName": "Foundational Principles",
+          "lessons": [
+            {
+              "lessonTitle": "CIA Triad & AAA",
+              "questions": []
+            },
+            {
+              "lessonTitle": "Non-Repudiation & Zero Trust Basics",
+              "questions": []
+            }
+          ]
+        },
+        {
+          "subdomainName": "Change & Crypto Basics",
+          "lessons": [
+            {
+              "lessonTitle": "Change Management Processes",
+              "questions": []
+            },
+            {
+              "lessonTitle": "Encryption, Hashing, Digital Signatures",
+              "questions": []
+            },
+            {
+              "lessonTitle": "PKI & Certificate Lifecycle (CRL/OCSP)",
+              "questions": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "topicName": "Threats, Vulnerabilities & Mitigations",
+      "subdomains": [
+        {
+          "subdomainName": "Threat Actors & Vectors",
+          "lessons": [
+            {
+              "lessonTitle": "Threat Actors & Motivations (Nation-State, Insiders, etc.)",
+              "questions": []
+            },
+            {
+              "lessonTitle": "Social Engineering Attacks",
+              "questions": []
+            }
+          ]
+        },
+        {
+          "subdomainName": "Network & Application Attacks",
+          "lessons": [
+            {
+              "lessonTitle": "Common Vulnerability Types (XSS, Misconfigurations, etc.)",
+              "questions": []
+            },
+            {
+              "lessonTitle": "Indicators of Compromise (Malware, Credential, Crypto-Attacks)",
+              "questions": []
+            }
+          ]
+        },
+        {
+          "subdomainName": "Mitigation Techniques",
+          "lessons": [
+            {
+              "lessonTitle": "Segmentation, Hardening, Patching",
+              "questions": []
+            },
+            {
+              "lessonTitle": "Encryption & Secure Configurations",
+              "questions": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "topicName": "Security Architecture",
+      "subdomains": [
+        {
+          "subdomainName": "Infrastructure Models",
+          "lessons": [
+            {
+              "lessonTitle": "On-Premise, Cloud, Hybrid, Virtualization",
+              "questions": []
+            }
+          ]
+        },
+        {
+          "subdomainName": "Network Segmentation & Zones",
+          "lessons": [
+            {
+              "lessonTitle": "VLANs, DMZs, SASE Concepts",
+              "questions": []
+            }
+          ]
+        },
+        {
+          "subdomainName": "Security Appliances",
+          "lessons": [
+            {
+              "lessonTitle": "Firewalls, IDS/IPS, VPNs",
+              "questions": []
+            }
+          ]
+        },
+        {
+          "subdomainName": "Data Protection & Resilience",
+          "lessons": [
+            {
+              "lessonTitle": "Data in Rest/Transit/Use",
+              "questions": []
+            },
+            {
+              "lessonTitle": "Backups, HA, Failover & Recovery",
+              "questions": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "topicName": "Security Operations",
+      "subdomains": [
+        {
+          "subdomainName": "Asset & Configuration Management",
+          "lessons": [
+            {
+              "lessonTitle": "Secure Config-Baselines & MDM",
+              "questions": []
+            },
+            {
+              "lessonTitle": "Asset Inventory & Disposal",
+              "questions": []
+            }
+          ]
+        },
+        {
+          "subdomainName": "Vulnerability Management & Monitoring",
+          "lessons": [
+            {
+              "lessonTitle": "Vulnerability Scanning & CVE/OSINT",
+              "questions": []
+            },
+            {
+              "lessonTitle": "SIEM, EDR, UBA & Alerting",
+              "questions": []
+            }
+          ]
+        },
+        {
+          "subdomainName": "Incident Response & Forensics",
+          "lessons": [
+            {
+              "lessonTitle": "Incident Response Lifecycle (Preparation to Lessons Learned)",
+              "questions": []
+            },
+            {
+              "lessonTitle": "Threat Hunting & Forensics Fundamentals",
+              "questions": []
+            }
+          ]
+        },
+        {
+          "subdomainName": "Identity & Access Management",
+          "lessons": [
+            {
+              "lessonTitle": "Authentication (MFA, SSO, Biometrics)",
+              "questions": []
+            },
+            {
+              "lessonTitle": "Authorization Models (RBAC, ABAC) & Privileged Access",
+              "questions": []
+            }
+          ]
+        },
+        {
+          "subdomainName": "Automation & Scripting",
+          "lessons": [
+            {
+              "lessonTitle": "Security Automation Use Cases (SOAR, Bash, Python, PowerShell)",
+              "questions": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "topicName": "Program Management & Oversight",
+      "subdomains": [
+        {
+          "subdomainName": "Governance & Risk Management",
+          "lessons": [
+            {
+              "lessonTitle": "Risk Process (Risk Appetite, BIA, ALE/SLE/ARO)",
+              "questions": []
+            },
+            {
+              "lessonTitle": "Policy Frameworks & Change Management",
+              "questions": []
+            }
+          ]
+        },
+        {
+          "subdomainName": "Vendor & Third-Party Risk",
+          "lessons": [
+            {
+              "lessonTitle": "Audit Types, Compliance Frameworks, Regulatory Reporting",
+              "questions": []
+            },
+            {
+              "lessonTitle": "Privacy Laws (GDPR, HIPAA, PCI-DSS, CCPA)",
+              "questions": []
+            }
+          ]
+        },
+        {
+          "subdomainName": "Security Awareness & Training",
+          "lessons": [
+            {
+              "lessonTitle": "Phishing Simulations & User Awareness Programs",
+              "questions": []
+            },
+            {
+              "lessonTitle": "User Behavior Monitoring & Incident Reporting",
+              "questions": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

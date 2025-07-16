@@ -3,34 +3,47 @@ import requests
 import os
 import json
 import uuid
+import random
 
 app = Flask(__name__)
 OPENROUTER_API_KEY = os.getenv("Question_Generator_Key")
 MODEL_ENDPOINT = "https://openrouter.ai/api/v1/chat/completions"
 
-# Load the lesson structure file (must match your nested schema)
+# Load the lesson structure
 with open("/Users/jcohen/Desktop/Question_Generator/security_plus_structure.json", "r") as f:
     data = json.load(f)
 
-# Generate a single multiple choice question
-def generate_question(topic_name, subdomain_name, lesson_title, lesson_id):
-    system_prompt = (
-        "You're an expert AI question generator for cybersecurity certification exams. "
-        "Create ONE multiple-choice question (4 options), with a single correct answer, for the lesson described below. "
-        "Return only a valid JSON object — no extra text. Fields: question, options, correctAnswer (index), explanation, difficulty (1–10)."
-    )
+# System prompt for model
+system_prompt = (
+    "You are a custom-tuned AI model specialized in generating high-quality, exam-relevant questions "
+    "for cybersecurity certifications such as Security+, CISSP, and AWS Security Specialty. "
+    "You will generate ONE multiple-choice question (with exactly 4 answer options) for a specific lesson. "
+    "The question should be clear, relevant, and aligned with the certification’s exam style. "
+    "Return ONLY valid JSON — no preamble, no explanation, no markdown. "
+    "Each output must include the following fields: \n"
+    "• question (string)\n"
+    "• options (array of 4 strings)\n"
+    "• correctAnswer (integer index of correct option)\n"
+    "• explanation (Accurate)\n"
+    "• difficulty (1–10, calibrated to the CERTIFICATION’s overall difficulty — Security+ is mid-tier)\n"
+    "• questionType (currently always 'multiple_choice_single_answer', but designed for future formats)"
+)
 
-    user_prompt = f"""Topic: {topic_name}
+# Function to generate a question
+def generate_question(topic_name, subdomain_name, lesson_title, lesson_id):
+    user_prompt = f"""Certification: Security+
+Topic: {topic_name}
 Subdomain: {subdomain_name}
 Lesson: {lesson_title}
 
-Output ONLY valid JSON:
+Output only valid JSON:
 {{
   "question": "...",
   "options": ["...", "...", "...", "..."],
   "correctAnswer": 0,
   "explanation": "...",
-  "difficulty": 6
+  "difficulty": 6,
+  "questionType": "multiple_choice_single"
 }}"""
 
     headers = {
@@ -53,13 +66,14 @@ Output ONLY valid JSON:
         parsed = json.loads(content)
 
         return {
-            "id": str(uuid.uuid4()),  # use UUID or increment strategy
-            "type": "multiple_choice_single",
+            "id": str(uuid.uuid4()),
+            "type": parsed.get("questionType", "multiple_choice_single"),
+            "certification": "Security+",
             "question": parsed["question"],
             "options": parsed["options"],
             "correctAnswer": parsed["correctAnswer"],
             "explanation": parsed["explanation"],
-            "difficulty": parsed["difficulty"],
+            "difficulty": parsed.get("difficulty", random.randint(3, 8)),
             "lessonID": lesson_id
         }
 
