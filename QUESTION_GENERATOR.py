@@ -5,7 +5,7 @@ import json
 import uuid
 
 app = Flask(__name__)
-OPENROUTER_API_KEY = os.getenv("OPENROUTER_CYBER_STUDY_API_KEY")
+OPENROUTER_API_KEY = os.getenv("Question_Generator_Key")
 MODEL_ENDPOINT = "https://openrouter.ai/api/v1/chat/completions"
 
 # Load the lesson structure file (must match your nested schema)
