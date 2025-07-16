@@ -1,0 +1,20 @@
+{
+    "certification": "Security+",
+    "topics": [
+      {
+        "topicName": "General Security Concepts",
+        "subdomains": [
+          {
+            "subdomainName": "Security Frameworks & Controls",
+            "lessons": [
+              {
+                "lessonTitle": "CIA Triad & AAA",
+                "lessonID": 1,
+                "questions": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
