@@ -39,7 +39,7 @@ Output ONLY valid JSON:
     }
 
     payload = {
-        "model": "gpt-4",
+        "model": "openai/gpt-4-turbo",
         "messages": [
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": user_prompt}
