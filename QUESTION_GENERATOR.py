@@ -30,13 +30,22 @@ system_prompt = (
 )
 
 # Generate one question for a lesson
-def generate_question(topic_name, subdomain_name, lesson_title, lesson_id):
+def generate_question(topic_name, subdomain_name, lesson_title, lesson_id, previous_questions):
+    previous_text = ""
+    if previous_questions:
+        bullets = "\n".join(f"- {q['question']}" for q in previous_questions)
+        previous_text = (
+            f"Here are previously generated questions for this lesson. "
+            f"Create a NEW, DISTINCT question that covers the same concept from a different angle. "
+            f"Avoid repeating the same structure or focus:\n{bullets}\n\n"
+        )
+
     user_prompt = f"""Certification: Security+
 Topic: {topic_name}
 Subdomain: {subdomain_name}
 Lesson: {lesson_title}
 
-Output only valid JSON:
+{previous_text}Output only valid JSON:
 {{
   "question": "...",
   "options": ["...", "...", "...", "..."],
@@ -90,15 +99,19 @@ def generate_questions():
     for topic_index, topic in enumerate(data["topics"], start=1):
         for sub_index, subdomain in enumerate(topic["subdomains"], start=1):
             for lesson_index, lesson in enumerate(subdomain["lessons"], start=1):
-                lesson_id = f"sec{topic_index}-{sub_index}-{lesson_index}"  # assign here only
+                lesson_id = f"sec{topic_index}-{sub_index}-{lesson_index}"
                 if "questions" not in lesson:
                     lesson["questions"] = []
+
                 for _ in range(questions_per_lesson):
+                    # Pass prior questions for prompt variation
+                    previous_questions = lesson["questions"]
                     q = generate_question(
                         topic_name=topic["topicName"],
                         subdomain_name=subdomain["subdomainName"],
                         lesson_title=lesson["lessonTitle"],
-                        lesson_id=lesson_id
+                        lesson_id=lesson_id,
+                        previous_questions=previous_questions
                     )
                     if q:
                         lesson["questions"].append(q)
