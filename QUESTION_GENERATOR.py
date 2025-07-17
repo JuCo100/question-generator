@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_file
 import requests
 import os
 import json
@@ -115,6 +115,14 @@ def generate_questions():
         "failed": failed,
         "message": f"{generated} questions generated and saved."
     })
+
+# ✅ New route to download the generated questions
+@app.route("/download", methods=["GET"])
+def download_questions():
+    filepath = "security_plus_full_questions.json"
+    if not os.path.exists(filepath):
+        return jsonify({"error": "File not found. Please generate questions first."}), 404
+    return send_file(filepath, as_attachment=True)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
