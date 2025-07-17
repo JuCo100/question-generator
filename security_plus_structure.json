@@ -9,11 +9,13 @@
           "lessons": [
             {
               "lessonTitle": "Types of Security Controls (Preventive, Detective, Corrective)",
-              "questions": []
+              "questions": [],
+              "lessonID": "General Security Concepts::Security Frameworks & Controls::Types of Security Controls (Preventive, Detective, Corrective)"
             },
             {
               "lessonTitle": "Directive, Compensating & Physical Controls",
-              "questions": []
+              "questions": [],
+              "lessonID": "General Security Concepts::Security Frameworks & Controls::Directive, Compensating & Physical Controls"
             }
           ]
         },
@@ -22,11 +24,13 @@
           "lessons": [
             {
               "lessonTitle": "CIA Triad & AAA",
-              "questions": []
+              "questions": [],
+              "lessonID": "General Security Concepts::Foundational Principles::CIA Triad & AAA"
             },
             {
               "lessonTitle": "Non-Repudiation & Zero Trust Basics",
-              "questions": []
+              "questions": [],
+              "lessonID": "General Security Concepts::Foundational Principles::Non-Repudiation & Zero Trust Basics"
             }
           ]
         },
@@ -35,15 +39,18 @@
           "lessons": [
             {
               "lessonTitle": "Change Management Processes",
-              "questions": []
+              "questions": [],
+              "lessonID": "General Security Concepts::Change & Crypto Basics::Change Management Processes"
             },
             {
               "lessonTitle": "Encryption, Hashing, Digital Signatures",
-              "questions": []
+              "questions": [],
+              "lessonID": "General Security Concepts::Change & Crypto Basics::Encryption, Hashing, Digital Signatures"
             },
             {
               "lessonTitle": "PKI & Certificate Lifecycle (CRL/OCSP)",
-              "questions": []
+              "questions": [],
+              "lessonID": "General Security Concepts::Change & Crypto Basics::PKI & Certificate Lifecycle (CRL/OCSP)"
             }
           ]
         }
@@ -57,11 +64,13 @@
           "lessons": [
             {
               "lessonTitle": "Threat Actors & Motivations (Nation-State, Insiders, etc.)",
-              "questions": []
+              "questions": [],
+              "lessonID": "Threats, Vulnerabilities & Mitigations::Threat Actors & Vectors::Threat Actors & Motivations (Nation-State, Insiders, etc.)"
             },
             {
               "lessonTitle": "Social Engineering Attacks",
-              "questions": []
+              "questions": [],
+              "lessonID": "Threats, Vulnerabilities & Mitigations::Threat Actors & Vectors::Social Engineering Attacks"
             }
           ]
         },
@@ -70,11 +79,13 @@
           "lessons": [
             {
               "lessonTitle": "Common Vulnerability Types (XSS, Misconfigurations, etc.)",
-              "questions": []
+              "questions": [],
+              "lessonID": "Threats, Vulnerabilities & Mitigations::Network & Application Attacks::Common Vulnerability Types (XSS, Misconfigurations, etc.)"
             },
             {
               "lessonTitle": "Indicators of Compromise (Malware, Credential, Crypto-Attacks)",
-              "questions": []
+              "questions": [],
+              "lessonID": "Threats, Vulnerabilities & Mitigations::Network & Application Attacks::Indicators of Compromise (Malware, Credential, Crypto-Attacks)"
             }
           ]
         },
@@ -83,11 +94,13 @@
           "lessons": [
             {
               "lessonTitle": "Segmentation, Hardening, Patching",
-              "questions": []
+              "questions": [],
+              "lessonID": "Threats, Vulnerabilities & Mitigations::Mitigation Techniques::Segmentation, Hardening, Patching"
             },
             {
               "lessonTitle": "Encryption & Secure Configurations",
-              "questions": []
+              "questions": [],
+              "lessonID": "Threats, Vulnerabilities & Mitigations::Mitigation Techniques::Encryption & Secure Configurations"
             }
           ]
         }
@@ -101,7 +114,8 @@
           "lessons": [
             {
               "lessonTitle": "On-Premise, Cloud, Hybrid, Virtualization",
-              "questions": []
+              "questions": [],
+              "lessonID": "Security Architecture::Infrastructure Models::On-Premise, Cloud, Hybrid, Virtualization"
             }
           ]
         },
@@ -110,7 +124,8 @@
           "lessons": [
             {
               "lessonTitle": "VLANs, DMZs, SASE Concepts",
-              "questions": []
+              "questions": [],
+              "lessonID": "Security Architecture::Network Segmentation & Zones::VLANs, DMZs, SASE Concepts"
             }
           ]
         },
@@ -119,7 +134,8 @@
           "lessons": [
             {
               "lessonTitle": "Firewalls, IDS/IPS, VPNs",
-              "questions": []
+              "questions": [],
+              "lessonID": "Security Architecture::Security Appliances::Firewalls, IDS/IPS, VPNs"
             }
           ]
         },
@@ -128,11 +144,13 @@
           "lessons": [
             {
               "lessonTitle": "Data in Rest/Transit/Use",
-              "questions": []
+              "questions": [],
+              "lessonID": "Security Architecture::Data Protection & Resilience::Data in Rest/Transit/Use"
             },
             {
               "lessonTitle": "Backups, HA, Failover & Recovery",
-              "questions": []
+              "questions": [],
+              "lessonID": "Security Architecture::Data Protection & Resilience::Backups, HA, Failover & Recovery"
             }
           ]
         }
@@ -146,11 +164,13 @@
           "lessons": [
             {
               "lessonTitle": "Secure Config-Baselines & MDM",
-              "questions": []
+              "questions": [],
+              "lessonID": "Security Operations::Asset & Configuration Management::Secure Config-Baselines & MDM"
             },
             {
               "lessonTitle": "Asset Inventory & Disposal",
-              "questions": []
+              "questions": [],
+              "lessonID": "Security Operations::Asset & Configuration Management::Asset Inventory & Disposal"
             }
           ]
         },
@@ -159,11 +179,13 @@
           "lessons": [
             {
               "lessonTitle": "Vulnerability Scanning & CVE/OSINT",
-              "questions": []
+              "questions": [],
+              "lessonID": "Security Operations::Vulnerability Management & Monitoring::Vulnerability Scanning & CVE/OSINT"
             },
             {
               "lessonTitle": "SIEM, EDR, UBA & Alerting",
-              "questions": []
+              "questions": [],
+              "lessonID": "Security Operations::Vulnerability Management & Monitoring::SIEM, EDR, UBA & Alerting"
             }
           ]
         },
@@ -172,11 +194,13 @@
           "lessons": [
             {
               "lessonTitle": "Incident Response Lifecycle (Preparation to Lessons Learned)",
-              "questions": []
+              "questions": [],
+              "lessonID": "Security Operations::Incident Response & Forensics::Incident Response Lifecycle (Preparation to Lessons Learned)"
             },
             {
               "lessonTitle": "Threat Hunting & Forensics Fundamentals",
-              "questions": []
+              "questions": [],
+              "lessonID": "Security Operations::Incident Response & Forensics::Threat Hunting & Forensics Fundamentals"
             }
           ]
         },
@@ -185,11 +209,13 @@
           "lessons": [
             {
               "lessonTitle": "Authentication (MFA, SSO, Biometrics)",
-              "questions": []
+              "questions": [],
+              "lessonID": "Security Operations::Identity & Access Management::Authentication (MFA, SSO, Biometrics)"
             },
             {
               "lessonTitle": "Authorization Models (RBAC, ABAC) & Privileged Access",
-              "questions": []
+              "questions": [],
+              "lessonID": "Security Operations::Identity & Access Management::Authorization Models (RBAC, ABAC) & Privileged Access"
             }
           ]
         },
@@ -198,7 +224,8 @@
           "lessons": [
             {
               "lessonTitle": "Security Automation Use Cases (SOAR, Bash, Python, PowerShell)",
-              "questions": []
+              "questions": [],
+              "lessonID": "Security Operations::Automation & Scripting::Security Automation Use Cases (SOAR, Bash, Python, PowerShell)"
             }
           ]
         }
@@ -212,11 +239,13 @@
           "lessons": [
             {
               "lessonTitle": "Risk Process (Risk Appetite, BIA, ALE/SLE/ARO)",
-              "questions": []
+              "questions": [],
+              "lessonID": "Program Management & Oversight::Governance & Risk Management::Risk Process (Risk Appetite, BIA, ALE/SLE/ARO)"
             },
             {
               "lessonTitle": "Policy Frameworks & Change Management",
-              "questions": []
+              "questions": [],
+              "lessonID": "Program Management & Oversight::Governance & Risk Management::Policy Frameworks & Change Management"
             }
           ]
         },
@@ -225,11 +254,13 @@
           "lessons": [
             {
               "lessonTitle": "Audit Types, Compliance Frameworks, Regulatory Reporting",
-              "questions": []
+              "questions": [],
+              "lessonID": "Program Management & Oversight::Vendor & Third-Party Risk::Audit Types, Compliance Frameworks, Regulatory Reporting"
             },
             {
               "lessonTitle": "Privacy Laws (GDPR, HIPAA, PCI-DSS, CCPA)",
-              "questions": []
+              "questions": [],
+              "lessonID": "Program Management & Oversight::Vendor & Third-Party Risk::Privacy Laws (GDPR, HIPAA, PCI-DSS, CCPA)"
             }
           ]
         },
@@ -238,11 +269,13 @@
           "lessons": [
             {
               "lessonTitle": "Phishing Simulations & User Awareness Programs",
-              "questions": []
+              "questions": [],
+              "lessonID": "Program Management & Oversight::Security Awareness & Training::Phishing Simulations & User Awareness Programs"
             },
             {
               "lessonTitle": "User Behavior Monitoring & Incident Reporting",
-              "questions": []
+              "questions": [],
+              "lessonID": "Program Management & Oversight::Security Awareness & Training::User Behavior Monitoring & Incident Reporting"
             }
           ]
         }
