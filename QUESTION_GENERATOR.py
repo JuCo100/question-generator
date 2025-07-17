@@ -15,7 +15,7 @@ with open("security_plus_structure.json", "r") as f:
 
 # System prompt for model
 system_prompt = (
-    "You are a custom-tuned AI model specialized in generating high-quality, exam-relevant questions "
+    "You are a custom-tuned AI model specialized in generating HIGH-quality, exam-relevant questions "
     "for cybersecurity certifications such as Security+, CISSP, and AWS Security Specialty. "
     "You will generate ONE multiple-choice question (with exactly 4 answer options) for a specific lesson. "
     "The question should be clear, relevant, and aligned with the certification’s exam style. "
@@ -87,10 +87,10 @@ def generate_questions():
     generated = 0
     failed = 0
 
-    for topic in data["topics"]:
-        for subdomain in topic["subdomains"]:
-            for lesson in subdomain["lessons"]:
-                lesson_id = lesson["lessonID"]
+    for topic_index, topic in enumerate(data["topics"], start=1):
+        for sub_index, subdomain in enumerate(topic["subdomains"], start=1):
+            for lesson_index, lesson in enumerate(subdomain["lessons"], start=1):
+                lesson_id = f"sec{topic_index}-{sub_index}-{lesson_index}"  # assign here only
                 if "questions" not in lesson:
                     lesson["questions"] = []
                 for _ in range(questions_per_lesson):
