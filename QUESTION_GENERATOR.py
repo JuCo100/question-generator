@@ -29,7 +29,7 @@ system_prompt = (
     "• questionType (currently always 'multiple_choice_single_answer', but designed for future formats)"
 )
 
-# Function to generate a question
+# Generate one question for a lesson
 def generate_question(topic_name, subdomain_name, lesson_title, lesson_id):
     user_prompt = f"""Certification: Security+
 Topic: {topic_name}
@@ -116,13 +116,13 @@ def generate_questions():
         "message": f"{generated} questions generated and saved."
     })
 
-# ✅ New route to download the generated questions
-@app.route("/download", methods=["GET"])
+@app.route("/downloads", methods=["GET"])
 def download_questions():
     filepath = "security_plus_full_questions.json"
-    if not os.path.exists(filepath):
+    if os.path.exists(filepath):
+        return send_file(filepath, as_attachment=True)
+    else:
         return jsonify({"error": "File not found. Please generate questions first."}), 404
-    return send_file(filepath, as_attachment=True)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
