@@ -13,46 +13,43 @@ MODEL_ENDPOINT = "https://openrouter.ai/api/v1/chat/completions"
 with open("security_plus_structure.json", "r") as f:
     data = json.load(f)
 
-# System prompt for model
+# System prompt for the model
 system_prompt = (
     "You are a custom-tuned AI model specialized in generating HIGH-quality, exam-relevant questions "
     "for cybersecurity certifications such as Security+, CISSP, and AWS Security Specialty. "
     "You will generate ONE multiple-choice question (with exactly 4 answer options) for a specific lesson. "
     "The question should be clear, relevant, and aligned with the certification’s exam style. "
+    "Avoid repeating questions that have already been asked. Try a new angle, scenario, or phrasing. "
     "Return ONLY valid JSON — no preamble, no explanation, no markdown. "
-    "Each output must include the following fields: \n"
+    "Each output must include the following fields:\n"
     "• question (string)\n"
     "• options (array of 4 strings)\n"
     "• correctAnswer (integer index of correct option)\n"
     "• explanation (Accurate)\n"
-    "• difficulty (1–10, calibrated to the CERTIFICATION’s overall difficulty — Security+ is mid-tier)\n"
-    "• questionType (currently always 'multiple_choice_single_answer', but designed for future formats)"
+    "• difficulty (1–10)\n"
+    "• questionType (currently always 'multiple_choice_single_answer')"
 )
 
-# Generate one question for a lesson
-def generate_question(topic_name, subdomain_name, lesson_title, lesson_id, previous_questions):
-    previous_text = ""
-    if previous_questions:
-        bullets = "\n".join(f"- {q['question']}" for q in previous_questions)
-        previous_text = (
-            f"Here are previously generated questions for this lesson. "
-            f"Create a NEW, DISTINCT question that covers the same concept from a different angle. "
-            f"Avoid repeating the same structure or focus:\n{bullets}\n\n"
-        )
+def generate_question(topic_name, subdomain_name, lesson_title, lesson_id, existing_questions):
+    previous_qs = "\n\n".join(
+        [f"Q: {q['question']}\nA: {q['options'][q['correctAnswer']]}" for q in existing_questions]
+    )
+    if previous_qs:
+        previous_qs = f"\nPrevious Questions (avoid repeating these):\n{previous_qs}\n"
 
     user_prompt = f"""Certification: Security+
 Topic: {topic_name}
 Subdomain: {subdomain_name}
-Lesson: {lesson_title}
+Lesson: {lesson_title}{previous_qs}
 
-{previous_text}Output only valid JSON:
+Output ONLY valid JSON:
 {{
-  "question": "...",
-  "options": ["...", "...", "...", "..."],
-  "correctAnswer": 0,
-  "explanation": "...",
-  "difficulty": 6,
-  "questionType": "multiple_choice_single"
+  "question": "Your question here",
+  "options": ["Option A", "Option B", "Option C", "Option D"],
+  "correctAnswer": INDEX_OF_CORRECT_ANSWER,
+  "explanation": "Why the correct answer is correct",
+  "difficulty": 1–10,
+  "questionType": "multiple_choice_single_answer"
 }}"""
 
     headers = {
@@ -76,14 +73,13 @@ Lesson: {lesson_title}
 
         return {
             "id": str(uuid.uuid4()),
-            "type": parsed.get("questionType", "multiple_choice_single"),
+            "type": parsed.get("questionType", "multiple_choice_single_answer"),
             "certification": "Security+",
             "question": parsed["question"],
             "options": parsed["options"],
             "correctAnswer": parsed["correctAnswer"],
             "explanation": parsed["explanation"],
-            "difficulty": parsed.get("difficulty", random.randint(3, 8)),
-            "lessonID": lesson_id
+            "difficulty": parsed.get("difficulty", random.randint(3, 8))
         }
 
     except Exception as e:
@@ -100,18 +96,18 @@ def generate_questions():
         for sub_index, subdomain in enumerate(topic["subdomains"], start=1):
             for lesson_index, lesson in enumerate(subdomain["lessons"], start=1):
                 lesson_id = f"sec{topic_index}-{sub_index}-{lesson_index}"
+                lesson["lessonID"] = lesson_id  # Ensure it's directly under lessonTitle
+
                 if "questions" not in lesson:
                     lesson["questions"] = []
 
                 for _ in range(questions_per_lesson):
-                    # Pass prior questions for prompt variation
-                    previous_questions = lesson["questions"]
                     q = generate_question(
                         topic_name=topic["topicName"],
                         subdomain_name=subdomain["subdomainName"],
                         lesson_title=lesson["lessonTitle"],
                         lesson_id=lesson_id,
-                        previous_questions=previous_questions
+                        existing_questions=lesson["questions"]
                     )
                     if q:
                         lesson["questions"].append(q)
