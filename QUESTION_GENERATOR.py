@@ -58,7 +58,7 @@ Output ONLY valid JSON:
     }
 
     payload = {
-        "model": "openai/gpt-4-turbo",
+        "model": "openai/gpt-4.1",
         "messages": [
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": user_prompt}
@@ -79,7 +79,6 @@ Output ONLY valid JSON:
             "options": parsed["options"],
             "correctAnswer": parsed["correctAnswer"],
             "explanation": parsed["explanation"],
-            "difficulty": parsed.get("difficulty", random.randint(3, 8))
         }
 
     except Exception as e:
